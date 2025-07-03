@@ -1,0 +1,37 @@
+<app-navbar></app-navbar>
+<div class="container mt-4">
+  <!-- This is where routed components will appear -->
+  <router-outlet></router-outlet>
+  
+  <!-- Chat button with face -->
+  <div id="chat-btn" class="chat-btn" [ngClass]="{'active': isChatBtnActive}" (click)="toggleChat()">
+    <div>
+      <div class="left-eye"></div>
+      <div class="mouth"></div>
+      <div class="right-eye"></div>
+    </div>
+  </div>
+  
+  <!-- Chat widget container -->
+  <div class="chat-widget-container" [ngClass]="{'open': isChatOpen}" [@slideInOut]="isChatOpen ? 'in' : 'out'">
+    <div class="chat-header">
+      <h3>Hospital Assistant</h3>
+      <button class="close-btn" (click)="toggleChat()">&times;</button>
+    </div>
+    
+    <div class="chat-messages">
+      <div *ngFor="let message of botMessages" class="message" 
+          [ngClass]="{'user-message': message.startsWith('You:'), 'bot-message': message.startsWith('Bot:')}">
+        {{ message }}
+      </div>
+    </div>
+    
+    <div class="chat-input">
+      <input type="text" 
+             [(ngModel)]="userMessage" 
+             placeholder="Type your message..." 
+             (keyup.enter)="sendMessage()">
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+</div>

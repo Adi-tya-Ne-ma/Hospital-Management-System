@@ -1,0 +1,35 @@
+<div *ngIf="prescriptions.length > 0; else noPrescription">
+
+  <div class="report-header">
+      <div>
+        <h1>Medical Prescription Report</h1>
+        <h2>Dr. {{ doctor?.name }}</h2>
+        <p><strong>Specialization:</strong> {{ doctor?.specialization }}</p>
+        <p><strong>Phone:</strong> {{ doctor?.phoneNumber }}</p>
+      </div>
+    </div>
+    <hr>
+    <div class="report-section">
+      <h3>Patient Information</h3>
+      <p><strong>Name:</strong> {{ patient?.name }}</p>
+    </div>
+<h2>Prescription details</h2>
+  <div *ngFor="let prescription of prescriptions; let idx = index" class="prescription-report">
+    
+    <div class="report-section" >
+      <h3>Medicine Details #{{ idx + 1 }}</h3>
+      <p><strong>Medicine:</strong> {{ prescription.medicine }}</p>
+      <p><strong>Dosage:</strong> {{ prescription.dosage }}</p>
+      <p><strong>Schedule:</strong> {{ prescription.schedule }}</p>
+
+      <p *ngIf="prescription.notes && prescription.notes.trim() !== ''">
+        <strong>Notes:</strong> {{ prescription.notes }}
+      </p>
+
+    </div>
+    <hr *ngIf="idx < prescriptions.length - 1">
+  </div>
+</div>
+<ng-template #noPrescription>
+  <p *ngIf="error">{{ error }}</p>
+</ng-template>

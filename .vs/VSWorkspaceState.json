@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\hospital-managements",
+    "\\hospital-managements\\src",
+    "\\hospital-managements\\src\\app",
+    "\\hospital-managements\\src\\app\\components",
+    "\\hospital-managements\\src\\app\\components\\Doctor-dashboard"
+  ],
+  "SelectedNode": "\\hospital-managements\\src\\app\\components\\Doctor-dashboard\\dashboard.component.ts",
+  "PreviewInSolutionExplorer": false
+}

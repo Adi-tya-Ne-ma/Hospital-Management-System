@@ -1,0 +1,61 @@
+<form [formGroup]="prescriptionForm" (ngSubmit)="submitPrescription()">
+  <div formArrayName="prescriptions">
+    <div
+      *ngFor="let prescription of prescriptions.controls; let i = index"
+      [formGroupName]="i"
+      class="prescription-entry"
+    >
+      <div class="form-group">
+        <label for="medicine-{{ i }}">Medicine</label>
+        <select id="medicine-{{ i }}" formControlName="medicine" required>
+          <option value="Medicine A">Medicine A</option>
+          <option value="Medicine B">Medicine B</option>
+          <option value="Medicine C">Medicine C</option>
+          <option value="Medicine D">Medicine D</option>
+          <option value="Medicine E">Medicine E</option>
+          <option value="Medicine F">Medicine F</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="dosage-{{ i }}">Dosage</label>
+        <select id="dosage-{{ i }}" formControlName="dosage" required>
+          <option value="1 time a day">1 time a day</option>
+          <option value="2 times a day">2 times a day</option>
+          <option value="3 times a day">3 times a day</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="schedule-{{ i }}">Schedule</label>
+        <select id="schedule-{{ i }}" formControlName="schedule" required>
+          <option value="1 week">1 week</option>
+          <option value="15 days">15 days</option>
+          <option value="1 month">1 month</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="notes-{{ i }}">Notes</label>
+        <textarea
+          id="notes-{{ i }}"
+          formControlName="notes"
+          placeholder="Any extra instructions..."
+        ></textarea>
+      </div>
+
+      <button type="button" (click)="removePrescription(i)" *ngIf="prescriptions.length > 1">
+        Remove
+      </button>
+
+      <hr />
+    </div>
+  </div>
+
+  <button type="button" (click)="addPrescription()"> Add Medicine</button>
+  <br /><br />
+
+  <button type="submit" [disabled]="prescriptionForm.invalid">
+    Submit Prescription
+  </button>
+</form>

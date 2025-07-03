@@ -1,0 +1,30 @@
+<div class="form-body">
+  <form class="booking-form" #appointmentForm="ngForm" (ngSubmit)="bookAppointment()">
+    <h1>Book Your Slot</h1>
+
+    
+    <input 
+      type="date" 
+      name="date" 
+      [(ngModel)]="appointmentData.date" 
+      #date="ngModel" 
+      required>
+    <div *ngIf="date.invalid && date.touched" class="error">
+      <small *ngIf="date.errors?.['required']">Date is required.</small>
+    </div>
+
+   
+    <input 
+      type="time" 
+      name="time" 
+      [(ngModel)]="appointmentData.time" 
+      #time="ngModel" 
+      required>
+    <div *ngIf="time.invalid && time.touched" class="error">
+      <small *ngIf="time.errors?.['required']">Time is required.</small>
+    </div>
+
+   
+    <button type="submit" [disabled]="appointmentForm.invalid">Book Appointment</button>
+  </form>
+</div>

@@ -1,0 +1,55 @@
+<div class="dashboard-header">
+  <h1>Patient Dashboard</h1>
+  <p>Manage your appointments and medical information</p>
+</div>
+
+<div class="dashboard-container">
+  <div class="person-card" *ngIf="patientProfile">
+    <!-- <img [src]="'assets/images/default-patient.jpg'" alt="Patient Profile" class="profile-img" /> -->
+    <div class="info">
+      <h2>{{ patientProfile?.name || 'Patient Name' }}</h2>
+      <p><strong>Phone:</strong> {{ patientProfile?.phoneNumber || 'Not available' }}</p>
+      <p><strong>Address:</strong> {{ patientProfile?.address || 'Not available' }}</p>
+    </div>
+    <button class="btn" (click)="edit()">Edit Profile</button>
+  </div>
+</div>
+
+<div class="appointments-section">
+  <h2>Upcoming Appointments</h2>
+
+  <div *ngIf="isLoading" class="loading-indicator">
+    <div class="spinner"></div>
+    Loading appointments...
+  </div>
+
+  <div *ngIf="error" class="error-message">{{ error }}</div>
+
+  <div *ngIf="appointments.length > 0">
+    <ul class="space-y-3">
+      <li *ngFor="let appt of appointments">
+        <p><strong>Date:</strong> {{ appt.date }}</p>
+        <p><strong>Time:</strong> {{ appt.time }}</p>
+        <p><strong>Doctor:</strong> {{ appt.doctorName || appt.doctorUsername }}</p>
+        <p><strong>Specialization:</strong> {{ appt.specialization || 'N/A' }}</p>
+        <p><strong>Contact:</strong> {{ appt.phoneNumber || 'N/A' }}</p>
+        <!-- <p><strong>Status:</strong>
+          <span class="status" [ngClass]="'status-' + appt.status?.toLowerCase()">{{ appt.status }}</span>
+        </p> -->
+        <div class="appointment-actions">
+          <button class="btn-secondary" (click)="cancelAppointment(appt.appointmentId)">Cancel Appointment</button>
+          <button class="btn-primary" (click)="joinVideoCall(appt)">
+            Join Video Call
+          </button>
+          <button class="btn-primary" (click)="readPrescription(appt)">
+            Read Prescription
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="appointments.length === 0 && !isLoading" class="empty-state">
+    No upcoming appointments.
+  </div>
+</div>

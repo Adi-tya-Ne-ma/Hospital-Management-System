@@ -1,0 +1,127 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #e3f2fd, #f2f4f8);
+  }
+  
+  .login {
+    width: 350px;
+    padding: 30px 25px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .login h2 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .login input[type="text"],
+  .login input[type="number"],
+  .login input[type="password"] {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 10px -10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+    background-color: #f9f9f9;
+  }
+  
+  .login input:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .password-field {
+    position: relative;
+  }
+  
+  .password-field input {
+    padding-right: 40px;
+    padding-left: 40px;
+  }
+  
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 16px;
+    color: #555;
+  }
+  .submit-btn {
+    width: 100%;
+    padding: 15px 0;
+    background: linear-gradient(90deg, #4299e1, #3182ce);
+    color: white;
+    font-size: 17px;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.3s, transform 0.2s;
+    box-shadow: 0 6px 10px rgba(66, 153, 225, 0.25);
+  }
+  
+  .submit-btn:hover {
+    background: linear-gradient(90deg, #3182ce, #2b6cb0);
+    transform: translateY(-2px);
+  }
+  
+  .submit-btn:active {
+    transform: translateY(0);
+  }
+  
+  .submit-btn:disabled {
+    background: #b2c5e1;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  .userType-wrapper {
+    margin: 10px 0;
+  }
+  
+  .userType-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .userType-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: #555;
+    appearance: none; /* Hide default dropdown icon */
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 5'%3E%3Cpath fill='%233498db' d='M2 0L0 2h4L2 0zM2 5L0 3h4L2 5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px;
+    cursor: pointer;
+    transition: border-color 0.3s ease;
+  }
+  
+  .userType-select:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  .login .Summit:hover {
+    background-color: #2980b9;
+  }
+  

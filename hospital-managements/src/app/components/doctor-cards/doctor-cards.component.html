@@ -1,0 +1,23 @@
+<div class="doctor-list">
+  <div *ngIf="loading" class="loading-state">
+    <p>Loading doctors...</p>
+  </div>
+
+  <div *ngIf="error" class="error-state">
+    <p>Failed to load doctors. Please try again later.</p>
+  </div>
+
+  <div *ngIf="!loading && !error && (doctors$ | async)?.length === 0" class="empty-state">
+    <p>No doctors found.</p>
+  </div>
+
+  <div *ngFor="let doctor of (doctors$ | async)" class="doctor-card">
+    <img *ngIf="doctor.photo" [src]="doctor.photo" alt="Doctor Photo" class="doctor-photo" />
+    <div *ngIf="!doctor.photo" class="doctor-photo-placeholder"></div>
+    <div class="doctor-info">
+      <h3>{{ doctor.name }}</h3>
+      <p>{{ doctor.specialization || 'Specialist' }}</p>
+      <button (click)="goToBookings(doctor.username)">Book Appointment</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<nav class="navbar">
+  <h2 class="h2"><a routerLink="">Hospital</a></h2>
+  
+  <div class="search">
+    <input type="text" placeholder="Search Doctor" [(ngModel)]="searchTerm" />
+    <button (click)="onSearch()">Search</button>
+  </div>
+  
+  <div class="nav-links" [class.open]="isMenuOpen">
+    <ul>
+      <!-- Show signup/login options when user is NOT logged in -->
+      <li *ngIf="!isLoggedIn" class="dropdown">
+        <a class="dropdown-toggle" data-dropdown="signup" (click)="signup()">
+          Sign Up 
+        </a>
+        <!-- <div class="dropdown-menu">
+          <a (click)="patientSignup()">Sign Up as Patient</a>
+          <a (click)="doctorSignup()">Sign Up as Doctor</a>
+        </div> -->
+      </li>
+      
+      <li *ngIf="!isLoggedIn" class="dropdown">
+        <a class="dropdown-toggle" data-dropdown="login" (click)="toggleDropdown($event, 'login')">
+          Login
+        </a>
+        <div class="dropdown-menu" *ngIf="activeDropdown === 'login'">
+          <a (click)="login('doctor')">Login as Doctor</a>
+          <a (click)="login('patient')">Login as Patient</a>
+        </div>
+      </li>
+      
+      <!-- Show dashboard link when user IS logged in -->
+      <li *ngIf="isLoggedIn && userType === 'doctor'">
+        <a (click)="navigateToDashboard()">Doctor Dashboard</a>
+      </li>
+      
+      <li *ngIf="isLoggedIn && userType === 'patient'">
+        <a (click)="navigateToDashboard()">Patient Dashboard</a>
+      </li>
+      
+      <!-- Show logout button when user IS logged in -->
+      <li *ngIf="isLoggedIn">
+        <a (click)="logout()" class="logout-btn">Logout</a>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Hamburger icon for mobile view -->
+  <div class="hamburger" (click)="toggleMenu()">
+    ☰
+  </div>
+</nav>

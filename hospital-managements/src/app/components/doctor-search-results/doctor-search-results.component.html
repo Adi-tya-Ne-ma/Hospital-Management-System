@@ -1,0 +1,17 @@
+<div class="doctor-list">
+  <div class="search-results">
+    <h2>Search Results</h2>
+    <div *ngIf="doctors.length === 0" class="empty-state">No doctors found.</div>
+    <div *ngFor="let doctor of doctors" class="doctor-card">
+      <img *ngIf="doctor.photo" [src]="doctor.photo" alt="Doctor Photo" class="doctor-photo" />
+      <div *ngIf="!doctor.photo" class="doctor-photo-placeholder"></div>
+      <div class="doctor-info">
+        <h3>{{ doctor.name }}</h3>
+        <p>{{ doctor.specialization || 'Specialist' }}</p>
+        <p>{{ doctor.address }}</p>
+        <p>{{ doctor.phoneNumber }}</p>
+        <button (click)="book(doctor.username)">Book Appointment</button>
+      </div>
+    </div>
+  </div>
+</div>

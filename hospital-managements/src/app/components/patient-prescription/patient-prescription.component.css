@@ -1,0 +1,283 @@
+/* Enhanced Prescription Page Styling */
+.prescription-report {
+  max-width: 800px;
+  margin: 20px auto;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(25, 118, 210, 0.08), 
+              0 4px 16px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  position: relative;
+}
+
+/* Medical accent stripe */
+.prescription-report::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(135deg, #1976d2 0%, #42a5f5 100%);
+}
+
+.report-header {
+  background: linear-gradient(135deg, #f8fbff 0%, #e3f2fd 100%);
+  padding: 2.5rem 2.5rem 2rem 2.5rem;
+  border-bottom: 1px solid #e1f5fe;
+  position: relative;
+}
+
+.report-header::after {
+  content: '⚕️';
+  position: absolute;
+  top: 2rem;
+  right: 2.5rem;
+  font-size: 2.5rem;
+  opacity: 0.7;
+}
+
+.report-header h1 {
+  margin: 0 0 0.8rem 0;
+  color: #0d47a1;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.report-header h2 {
+  margin: 0 0 0.5rem 0;
+  color: #1565c0;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+.report-header p {
+  margin: 0.2rem 0;
+  color: #546e7a;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.report-header p strong {
+  color: #37474f;
+  min-width: 100px;
+}
+
+/* Patient Information Section */
+.report-section {
+  margin: 0;
+  padding: 1.8rem 2.5rem;
+  background: #fff;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.report-section:last-child {
+  border-bottom: none;
+}
+
+.report-section h3 {
+  margin: 0 0 1.2rem 0;
+  color: #1565c0;
+  font-size: 1.2rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.report-section h3::before {
+  content: '📋';
+  font-size: 1.1rem;
+}
+
+.report-section p {
+  margin: 0.8rem 0;
+  font-size: 1.05rem;
+  color: #424242;
+  line-height: 1.5;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.report-section p strong {
+  color: #263238;
+  min-width: 80px;
+  font-weight: 600;
+}
+
+/* Prescription Details Header */
+h2 {
+  margin: 2rem 0 1rem 0;
+  padding: 0 2.5rem;
+  color: #0d47a1;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+h2::before {
+  content: '💊';
+  font-size: 1.4rem;
+}
+
+/* Medicine Details Sections */
+.prescription-report .report-section:has(h3[class*="Medicine"]) {
+  background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e8 100%);
+  border: 1px solid #c8e6c9;
+  border-radius: 12px;
+  margin: 1rem 2.5rem;
+  padding: 1.5rem;
+}
+
+/* Medicine section styling */
+.report-section h3[class*="Medicine"]::before,
+.report-section h3:contains("Medicine")::before {
+  content: '💊';
+}
+
+/* Custom styling for different medicine sections */
+.prescription-report > div:nth-child(odd) .report-section {
+  background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%);
+  border: 1px solid #ffcc02;
+}
+
+.prescription-report > div:nth-child(even) .report-section {
+  background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%);
+  border: 1px solid #81c784;
+}
+
+/* HR styling */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent 0%, #e0e0e0 20%, #e0e0e0 80%, transparent 100%);
+  margin: 1.5rem 2.5rem;
+}
+
+/* Error message styling */
+ng-template p {
+  text-align: center;
+  color: #d32f2f;
+  font-size: 1.1rem;
+  padding: 2rem;
+  background: #ffebee;
+  border-radius: 8px;
+  border: 1px solid #ffcdd2;
+  margin: 2rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .prescription-report {
+    margin: 10px;
+    border-radius: 12px;
+  }
+  
+  .report-header {
+    padding: 2rem 1.5rem 1.5rem 1.5rem;
+  }
+  
+  .report-header::after {
+    right: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .report-header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .report-header h2 {
+    font-size: 1.2rem;
+  }
+  
+  .report-section {
+    padding: 1.5rem;
+  }
+  
+  h2 {
+    padding: 0 1.5rem;
+    font-size: 1.4rem;
+  }
+  
+  hr {
+    margin: 1rem 1.5rem;
+  }
+  
+  .prescription-report .report-section:has(h3[class*="Medicine"]) {
+    margin: 1rem 1.5rem;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .prescription-report {
+    margin: 5px;
+  }
+  
+  .report-header {
+    padding: 1.5rem 1rem;
+  }
+  
+  .report-header h1 {
+    font-size: 1.6rem;
+  }
+  
+  .report-header p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  
+  .report-header p strong {
+    min-width: auto;
+  }
+  
+  .report-section {
+    padding: 1.2rem 1rem;
+  }
+  
+  .report-section p {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.2rem;
+  }
+  
+  .report-section p strong {
+    min-width: auto;
+  }
+  
+  h2 {
+    padding: 0 1rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .prescription-report {
+    box-shadow: none;
+    border: 2px solid #1976d2;
+    margin: 0;
+    max-width: none;
+  }
+  
+  .report-header::after {
+    display: none;
+  }
+  
+  .prescription-report::before {
+    display: none;
+  }
+  
+  * {
+    -webkit-print-color-adjust: exact !important;
+    color-adjust: exact !important;
+  }
+}

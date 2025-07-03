@@ -1,0 +1,54 @@
+<div class="dashboard-header">
+  <h1>Doctor Dashboard</h1>
+  <p>Manage your appointments and patient information</p>
+</div>
+
+<div class="dashboard-container">
+  <div class="person-card">
+    <img *ngIf="doctor?.photo" [src]="doctor?.photo" alt="Doctor Profile" class="profile-img" />
+    <div *ngIf="!doctor?.photo" class="doctor-photo-placeholder"></div>
+    <div class="info">
+      <h2>{{ doctor?.name }}</h2>
+      <p><strong>Phone:</strong> {{ doctor?.phoneNumber }}</p>
+      <p><strong>Specialization:</strong> {{ doctor?.specialization }}</p>
+      <p><strong>Address:</strong> {{ doctor?.address }}</p>
+    </div>
+    <button class="btn" (click)="editpage()">Edit Profile</button>
+  </div>
+</div>
+
+<div class="patient-section">
+  <div class="patient-list">
+    <h1>Appointments</h1>
+
+    <div *ngFor="let appointment of appointments" class="patient-card">
+      <!-- <img src="assets/images/male-doctor-smiling-happy-face-600nw-2481032615.webp" alt="Patient Photo" class="patient-img" /> -->
+      <div class="patient-info">
+        <h3>
+          {{ appointment.patientUsername }}
+          <!-- <span 
+            class="status-badge" 
+            [ngClass]="{
+              'status-active': appointment. === 'Confirmed',
+              'status-pending': appointment.status === 'Pending',
+              'status-cancelled': appointment.status === 'Cancelled'
+            }"
+          >
+            {{ appointment.status }}
+          </span> -->
+        </h3> 
+        <p><strong>Date:</strong> {{ appointment.date }}</p>
+        <p><strong>Time:</strong> {{ appointment.time }}</p>
+      </div>
+      <div class="button-group">
+        <button class="appointment-btn" (click)="call(appointment)">
+          Join Appointment
+        </button>
+        <button class="appointment-btn" (click)="writePrescription(appointment)">
+          Write Prescription
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

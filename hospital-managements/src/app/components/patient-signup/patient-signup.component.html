@@ -1,0 +1,26 @@
+<div class="container">
+  <form class="signup">
+    <h2>Patient Signup</h2>
+
+    <input type="text" placeholder="Full Name" required>
+    <input type="number" placeholder="Phone Number" required>
+
+    <div class="password-field">
+      <input type="password" id="password" placeholder="Password" required>
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+
+    <div class="password-field">
+      <input type="password" id="confirm-password" placeholder="Confirm Password" required>
+      <span class="toggle-password" onclick="togglePassword()">👁️</span>
+    </div>
+
+    <!-- New input field for image upload -->
+    <div class="image-upload">
+      <label for="image">Upload Image:</label>
+      <input type="file" id="image" (change)="onImageUpload($event)" accept="image/*">
+    </div>
+
+    <button class="Summit" (click)="signup()">Register</button>
+  </form>
+</div>
